@@ -1,12 +1,12 @@
 package com.example.ui;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import com.example.entity.Player;
+import com.example.entity.Position;
+import com.example.service.KeyHandler;
 
 public class GamePainel extends JPanel {
 
@@ -19,6 +19,12 @@ public class GamePainel extends JPanel {
     this.setFocusable(true);
     this.addKeyListener(this.keyHandler);
     this.setLayout(null);
+
+    PlayerStatus status = new PlayerStatus(player);
+    Dimension dimension = new Dimension(200, 40);
+    status.setSize(dimension);
+    status.setLocation(10, 10);
+    this.add(status);
   }
 
   @Override

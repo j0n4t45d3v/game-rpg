@@ -8,17 +8,23 @@ public class Player {
   private final Position position;
   private final int size;
   private final int speed;
+  private int currentLife;
+  private final int life;
 
   public Player(Position position) {
     this.position = position;
     this.size = 40;
-    this.speed = 4;
+    this.speed = 10;
+    this.life = 100;
+    this.currentLife = 100;
   }
 
   public Player(int x, int y) {
     this.size = 40;
     this.position = new Position(x - this.size, y - this.size);
-    this.speed = 4;
+    this.speed = 10;
+    this.life = 100;
+    this.currentLife = 100;
   }
 
   public void draw(Graphics2D g) {
@@ -54,4 +60,19 @@ public class Player {
     return speed;
   }
 
+  public boolean isDead() {
+    return this.currentLife <= 0;
+  }
+
+  public int getLife() {
+    return this.life;
+  }
+
+  public int getCurrentLife() {
+    return this.currentLife;
+  }
+
+  public void receiveDamage(int hitValue) {
+    this.currentLife -= hitValue;
+  }
 }
