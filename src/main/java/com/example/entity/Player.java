@@ -35,11 +35,11 @@ public class Player {
   }
 
   public void moveLeft() {
-    this.position.addX(this.speed);
+    this.position.addX(this.speed * (-1));
   }
 
   public void moveRight() {
-    this.position.addX(this.speed * (-1));
+    this.position.addX(this.speed);
   }
 
   public Position getPosition() {

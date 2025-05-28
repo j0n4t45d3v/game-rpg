@@ -1,7 +1,6 @@
 package com.example.ui;
 
-import javax.swing.JFrame;
-import javax.swing.Timer;
+import javax.swing.*;
 
 import com.example.entity.Player;
 
@@ -17,16 +16,17 @@ public class Window extends JFrame {
     this.setTitle(TITLE);
     Dimension dimension = new Dimension(WIDTH, HEIGHT);
     this.setSize(dimension);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     this.setLocationRelativeTo(null);
     this.setResizable(false);
     Player player = new Player(WIDTH / 2, HEIGHT / 2);
     GamePainel gamePainel = new GamePainel(player);
     this.add(gamePainel);
 
-    new Timer(16, (e) -> {
+    new Timer(16, e -> {
+      gamePainel.movePlayer();
       gamePainel.repaint();
-    });
+    }).start();
   }
 
 }
